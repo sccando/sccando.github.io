@@ -561,6 +561,7 @@ body {
 #header-title {
   color: #1e7293;
   letter-spacing: 2px;
+  text-shadow: 4px 4px 10px;
 }
 #header-title h2 {
   -webkit-transition: all 0.5s;
