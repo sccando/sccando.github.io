@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JS 之面向对象 &amp;&amp; 常用设计模式 | advacing-oozy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="advacing-oozy,advacing-oozy's Blog" />
+  
+  <meta name="description" content="JS中，万事万物皆对象！  面向对象是按照对象、类、实例三层体系架构实现的，js把所有的东西按照特征分成了很多的大类小类，我们要研究其中的某一个类，只需要研究里面的一个实例即可，这种研究的方式就叫面向对象。  是不是有些懵圈？接下来我将会拿“乐器”来辅助理解什么是对象、类、实例：1、对象——乐器。泛指，具体可理解为无序属性的集合，其属性可以包含基本值、对象或函数。2、类——西洋乐器、民族乐器。对象">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS 之面向对象 &amp;&amp; 常用设计模式">
+<meta property="og:url" content="http://sccando.github.io/2017/09/14/JS之面向对象/index.html">
+<meta property="og:site_name" content="advacing-oozy">
+<meta property="og:description" content="JS中，万事万物皆对象！  面向对象是按照对象、类、实例三层体系架构实现的，js把所有的东西按照特征分成了很多的大类小类，我们要研究其中的某一个类，只需要研究里面的一个实例即可，这种研究的方式就叫面向对象。  是不是有些懵圈？接下来我将会拿“乐器”来辅助理解什么是对象、类、实例：1、对象——乐器。泛指，具体可理解为无序属性的集合，其属性可以包含基本值、对象或函数。2、类——西洋乐器、民族乐器。对象">
+<meta property="og:updated_time" content="2017-09-14T14:51:08.330Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS 之面向对象 &amp;&amp; 常用设计模式">
+<meta name="twitter:description" content="JS中，万事万物皆对象！  面向对象是按照对象、类、实例三层体系架构实现的，js把所有的东西按照特征分成了很多的大类小类，我们要研究其中的某一个类，只需要研究里面的一个实例即可，这种研究的方式就叫面向对象。  是不是有些懵圈？接下来我将会拿“乐器”来辅助理解什么是对象、类、实例：1、对象——乐器。泛指，具体可理解为无序属性的集合，其属性可以包含基本值、对象或函数。2、类——西洋乐器、民族乐器。对象">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">advacing-oozy&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        advacing-oozy&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        软泥攻城之路
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="advacing-oozy" target="_blank" href="//minhow.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/sccando.github.io">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-JS之面向对象" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      JS 之面向对象 &amp;&amp; 常用设计模式
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2017-09-14
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p><strong>JS中，万事万物皆对象！</strong></p>
+<blockquote>
+<p>面向对象是按照对象、类、实例三层体系架构实现的，js把所有的东西按照特征分成了很多的大类小类，我们要研究其中的某一个类，只需要研究里面的一个实例即可，这种研究的方式就叫面向对象。</p>
+</blockquote>
+<p>是不是有些懵圈？接下来我将会拿<strong>“乐器”</strong>来辅助理解什么是对象、类、实例：<br>1、对象——乐器。泛指，具体可理解为无序属性的集合，其属性可以包含基本值、对象或函数。<br>2、类——西洋乐器、民族乐器。对象的具体细分。<br>3、实例——钢琴、古筝。某个类中的具体事物。</p>
+<h2 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h2><h3 id="单例模式-单子模式-单体模式"><a href="#单例模式-单子模式-单体模式" class="headerlink" title="单例模式/单子模式/单体模式"></a>单例模式/单子模式/单体模式</h3><blockquote>
+<blockquote>
+<blockquote>
+<p>把描述的同一个事物（或同一个对象）放在一个内存空间，起到分组的作用。</p>
+</blockquote>
+<p>软件设计中较为简单，最为常用的一种设计模式。</p>
+</blockquote>
+<p>针对模块开发。项目中开发的模块比较多，多人协作，每个人负责一个模块，最终把代码合并到一起时，即使对象的属性名相同也不会产生冲突。</p>
+</blockquote>
+<pre><code>var  fly = {
+    name:&apos;飞机&apos;,
+    type:&apos;飞机&apos;,
+    fn:function(){
+        console.log(123)
+    }
+}
+
+var bus = {
+    name:&apos;大巴&apos;,
+    type:&apos;大巴&apos;,
+    fn:function(){
+        console.log(134)
+    }
+}
+</code></pre><h4 id="高级单例模式"><a href="#高级单例模式" class="headerlink" title="高级单例模式"></a>高级单例模式</h4><pre><code>var obj = (function(){
+    function fn(){};
+    function pre(){};
+    function next(){};
+    return {
+        fn: fn,
+        pre: pre,
+        next: next
+    }
+})()
+</code></pre><blockquote>
+<p><strong>缺点：</strong>使用同个接口创建对象，会产生大量的重复代码，为了解决这个问题，开发了工厂模式。</p>
+</blockquote>
+<h3 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h3><blockquote>
+<p>把实现一个功能的代码放到一个函数里面，减少冗余的代码（实质上就是一个封装函数 ）</p>
+</blockquote>
+<pre><code>function student(name,age){
+    var obj = {
+        name: name,
+        age: age
+    }
+    return obj;
+}
+var p1 = student(&apos;name1&apos;,20);
+var p2 = student(&apos;name2&apos;,18);
+</code></pre><blockquote>
+<p><strong>优点：高内聚低耦合</strong>——减少页面中的重复代码，提高代码的利用率<br><strong>缺点：</strong>无法识别对象的类型，因为全部都是Object，不像Date、Array等。因此出现了构造函数模式。</p>
+</blockquote>
+<h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><p>ECMAScript中构造函数可以创建特定类型的对象，类似于Array、Date等原生JS的对象。</p>
+<blockquote>
+<p>1、一般约定将函数名首字母大写；<br>2、不用手动创建对象，用this；<br>3、没有return，直接会返回一个对象作为这个类的实例；<br>4、执行的时候要用new。</p>
+</blockquote>
+<pre><code>function Person(name,age){
+    //  执行之前，浏览器默认创建一个对象
+    this.name = name,    //  给当前实例添加私有属性
+    this.age = age 
+    //  默认将这个对象返回      
+}
+Person.prototype.say = function(){
+    console.log(this.name,this.age)
+}
+
+// 此时的s1、s2就是Person的实例  s1、s2是对象
+// 构造函数模式，执行它的返回值就是这个类的实例，每一个实例都是一个独立的个体。
+// 构造函数中的this指的是当前实例
+var s1 = new Person(&apos;zs&apos;,18);  
+var s2 = new Person(&apos;ls&apos;,20);
+s1.say();
+
+function CreatePerson(name,age){
+    this.name = name;   
+    this.age = age;  
+    return { info : &apos;hahaha&apos;}  // 返回的就是引用数据类型
+    return 123     // 基本数据类型对实例无影响
+}
+var person1 = new CreatePerson(&apos;zs&apos;,10);  
+console.log(person1)    // info:&apos;hahaha&apos;
+</code></pre><p><strong>实例化的过程</strong></p>
+<blockquote>
+<p>1、也和普通函数执行一样，创建一个私有作用域，进行形参赋值和预解释;<br>2、预解释完成后，浏览器会默认的在私有作用域中创建一个对象，而且函数的this指向这个对象；<br>3、和普通函数一样，代码从上往下执行（作用域链）；<br>4、代码执行完成后，会默认的把第二步中创建的对象返回；<br>5、构造函数执行时，如果不需传参，后面的小括号可加可不加，没区别；<br>6、函数中，如手动返回的是基本数据类型，对最后的实例没有影响，如果返回的是引用数据类型，会把默认返回的实例覆盖掉。通过构造函数创建出来的实例都是相互独立的个体，互不影响，而在构造函数中的this.XXX相当于给当前的实例增加了属于自己的私有属性。</p>
+</blockquote>
+<p><strong>工厂模式和构造函数模式对比：</strong></p>
+<blockquote>
+<p>1、工厂模式，return出手工创建的对象；构造函数，默认创建一个对象，同时默认将这个对象返回。<br>2、构造函数，直接将属性和方法赋值给了this对象。<br>3、工厂模式，是普通函数执行；构造函数，通过new来执行，将其返回作为这个类的实例。<br>4、构造函数，执行时形成一个私有作用域-&gt; 形参赋值 -&gt; 预解释 -&gt; 代码从上至下执行。<br>5、工厂函数，返回的就是对象；构造函数，能够识别对象的具体类型。</p>
+<p><strong>构造函数缺点：</strong>每次创建实例时都要创建一次方法（理论上每次创建对象时的属性均不同，而对象的方法是相同的），然而创建两次完全相同的方法是没有必要的，因此，我们可以将函数移到对象外面。</p>
+</blockquote>
+<h3 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h3><blockquote>
+<p>我们创建的每个函数都有prototype（原型）属性，这个属性是一个指针，指向一个对象，而这个对象的用途是包含可以由特定类型的所有实例共享的属性和方法。</p>
+</blockquote>
+<pre><code>function Fn(){};
+Fn.prototype.name = &apos;s&apos;;
+Fn.prototype.age = 18;
+Fn.prototype.say = function(){
+    console.log(this.name + this.age);
+}
+var p1 = new Fn();
+var p2 = new Fn();
+</code></pre><blockquote>
+<p><strong>优点：</strong>可以让所有对象实例共享它所包含的属性及方法。<br><strong>缺点：</strong>它省略了构造函数传递初始化参数这一环节，结果所有实例在默认情况下都取得了相同的属性值，这样非常不方便，但这还不是原型的最大问题，原型模式的最大问题在于共享的本性所导致的，由于共享，如果一个实例修改了引用，另一个也随之更改了引用。</p>
+</blockquote>
+<p><strong>因此，我们通常不单独使用原型，而是结合原型模式与构造函数模式。</strong></p>
+<h3 id="混合模式（原型模式-构造函数模式）"><a href="#混合模式（原型模式-构造函数模式）" class="headerlink" title="混合模式（原型模式+构造函数模式）"></a>混合模式（原型模式+构造函数模式）</h3><blockquote>
+<blockquote>
+<blockquote>
+<p>1、混合模式中构造函数用于定义实例属性，而原型模式用于定义方法和共享属性。每个实例都会有自己的一份实例属性，同时又有共享方法，最大限度的节省了内存。<br>2、这种模式还支持传递初始参数，优点甚多。<br>3、这种模式在ECMAScript中是使用最广泛、认同度最高的一种创建自定义对象的方法。</p>
+</blockquote>
+</blockquote>
+</blockquote>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2017年09月14日 22:51</p>
+        <p>原始链接： <a class="post-url" href="/2017/09/14/JS之面向对象/" title="JS 之面向对象 &amp;&amp; 常用设计模式">http://sccando.github.io/2017/09/14/JS之面向对象/</a></p>
+        <footer>
+            <a href="http://sccando.github.io">
+                <img src="/images/logo.png" alt="chao_shi">
+                chao_shi
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+    </div>
+    <footer class="article-footer">
+        <ul class="article-footer-menu">
+            
+            
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#设计模式"><span class="post-toc-text">设计模式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#单例模式-单子模式-单体模式"><span class="post-toc-text">单例模式/单子模式/单体模式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#高级单例模式"><span class="post-toc-text">高级单例模式</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#工厂模式"><span class="post-toc-text">工厂模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#构造函数"><span class="post-toc-text">构造函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#原型模式"><span class="post-toc-text">原型模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#混合模式（原型模式-构造函数模式）"><span class="post-toc-text">混合模式（原型模式+构造函数模式）</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/2017/09/13/测试/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">测试</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2017 chao_shi<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://sccando.github.io",
+      animate: true,
+      isHome: false
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            
+        </div>
+        <div id="sidebar-menu-box-tags">
+            
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div id="mobile-header-menu-container">
+        <span class="title">Menu</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+  </div>
+</body>
+</html>
