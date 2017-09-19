@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>VUE 初识 | advacing-oozy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="advacing-oozy,advacing-oozy's Blog" />
+  
+  <meta name="description" content="最近开始学习VUE,在学VUE之前有必要先提一个概念MVVM，即Model-View-ViewModel。M：封装了核心数据、逻辑和功能的计算关系的模型；V：视图（表现）；VM：包含所有由UI特定的接口和属性，并由一个VM的视图的绑定属性，并可获得二者之间的松散耦合。 MVVM模式主要目的是分离视图（View）和模型（Model），优点如下：1、低耦合。视图可以独立于Model变化和修改，一个Vi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VUE 初识">
+<meta property="og:url" content="http://sccando.github.io/2017/09/19/vue初识/index.html">
+<meta property="og:site_name" content="advacing-oozy">
+<meta property="og:description" content="最近开始学习VUE,在学VUE之前有必要先提一个概念MVVM，即Model-View-ViewModel。M：封装了核心数据、逻辑和功能的计算关系的模型；V：视图（表现）；VM：包含所有由UI特定的接口和属性，并由一个VM的视图的绑定属性，并可获得二者之间的松散耦合。 MVVM模式主要目的是分离视图（View）和模型（Model），优点如下：1、低耦合。视图可以独立于Model变化和修改，一个Vi">
+<meta property="og:updated_time" content="2017-09-19T09:01:18.862Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VUE 初识">
+<meta name="twitter:description" content="最近开始学习VUE,在学VUE之前有必要先提一个概念MVVM，即Model-View-ViewModel。M：封装了核心数据、逻辑和功能的计算关系的模型；V：视图（表现）；VM：包含所有由UI特定的接口和属性，并由一个VM的视图的绑定属性，并可获得二者之间的松散耦合。 MVVM模式主要目的是分离视图（View）和模型（Model），优点如下：1、低耦合。视图可以独立于Model变化和修改，一个Vi">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">advacing-oozy&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        advacing-oozy&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        软泥攻城之路
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="advacing-oozy" target="_blank" href="//minhow.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-vue初识" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      VUE 初识
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2017-09-19
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p>最近开始学习VUE,在学VUE之前有必要先提一个概念MVVM，即Model-View-ViewModel。M：封装了核心数据、逻辑和功能的计算关系的模型；V：视图（表现）；VM：包含所有由UI特定的接口和属性，并由一个VM的视图的绑定属性，并可获得二者之间的松散耦合。</p>
+<p>MVVM模式主要目的是分离视图（View）和模型（Model），优点如下：<br>1、低耦合。视图可以独立于Model变化和修改，一个ViewModel可以绑定到不同的View上，当View变化时，Model可以不变，当Model变化时，View也可以不变。<br>2、可重用性。可以把一些视图逻辑放在一个ViewModel里面，让很多View重用这段视图逻辑。<br>3、独立开发。开发人员可以专注于业务逻辑和数据的开发（ViewModel），设计人员可以专注于页面设计。<br>4、可测试。界面素来比较难以测试，而现在测试可以针对ViewModel来写。</p>
+<blockquote>
+<p>Vue.js 专注于 MVVM 模型的 ViewModel 层。它通过双向数据绑定把 View 层和 Model 层连接了起来。<br>Vue.js和其他库相比是一个小而美的库，作者的主要目的是通过一个尽量简单的 API 产生可反映的数据绑定和可组合的视图组件。</p>
+</blockquote>
+<h3 id="如何使用Vue-js"><a href="#如何使用Vue-js" class="headerlink" title="如何使用Vue.js"></a>如何使用Vue.js</h3><p>1、引入Vue.js<br>2、创建Vue实例<br>3、实例挂载option，option中固定的属性有：el、data、methods、computed等。</p>
+<h3 id="概念概述"><a href="#概念概述" class="headerlink" title="概念概述"></a>概念概述</h3><h4 id="1、ViewModel"><a href="#1、ViewModel" class="headerlink" title="1、ViewModel"></a>1、ViewModel</h4><pre><code>var vm = new Vue({/* option */})
+</code></pre><p>ViewModel是一个对象，同步模型和视图，在Vue.js中，就是实例化的Vue的构造器或者是它的子类。</p>
+<h4 id="2、View"><a href="#2、View" class="headerlink" title="2、View"></a>2、View</h4><pre><code>vm.$el
+</code></pre><p>View是实际HMTL/DOM。使用Vue时，除了自定义的指令，你几乎不会触碰到DOM的操作，当数据更新后视图的更新将会自动触发。</p>
+<h4 id="3、Model"><a href="#3、Model" class="headerlink" title="3、Model"></a>3、Model</h4><pre><code>vm.$data
+</code></pre><p>Model在Vue.js中是简单的js对象、数据对象，你能够操控他们的属性和视图模型。</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2017年09月19日 17:01</p>
+        <p>原始链接： <a class="post-url" href="/2017/09/19/vue初识/" title="VUE 初识">http://sccando.github.io/2017/09/19/vue初识/</a></p>
+        <footer>
+            <a href="http://sccando.github.io">
+                <img src="/images/logo.png" alt="chao_shi">
+                chao_shi
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+    </div>
+    <footer class="article-footer">
+        <ul class="article-footer-menu">
+            
+            
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何使用Vue-js"><span class="post-toc-text">如何使用Vue.js</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#概念概述"><span class="post-toc-text">概念概述</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1、ViewModel"><span class="post-toc-text">1、ViewModel</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2、View"><span class="post-toc-text">2、View</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3、Model"><span class="post-toc-text">3、Model</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/2017/09/14/JS之面向对象/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">JS 之 常用设计模式</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+      &copy; 2017 chao_shi<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://sccando.github.io",
+      animate: true,
+      isHome: false
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            
+        </div>
+        <div id="sidebar-menu-box-tags">
+            
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div id="mobile-header-menu-container">
+        <span class="title">Menu</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+  </div>
+</body>
+</html>
